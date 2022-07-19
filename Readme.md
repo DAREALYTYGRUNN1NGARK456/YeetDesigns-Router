@@ -1,6 +1,6 @@
 ---------
 # YeetDesigns EXPRESS GET ROUTER
-![npm](https://img.shields.io/npm/dw/yeetdesigns-router?logo=npm&style=for-the-badge)
+![npm](https://img.shields.io/npm/dw/yeetdesigns-router?logo=npm&style=for-the-badge) ![npm](https://img.shields.io/npm/v/yeetdesigns-router?logo=npm&style=for-the-badge)
 ## About
 ### this npm package uses
 #### versions of npm packages
