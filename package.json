@@ -1,12 +1,16 @@
 {
   "name": "yeetdesigns-router",
   "version": "1.0.0",
-  "description": "--------- # YeetDesigns EXPRESS GET ROUTER ## About ### this npm package uses #### versions of npm packages #### - quick.db v9.0.5 #### - express v4.18.1 #### - ejs v3.1.8 #### - pug v3.0.2 - [QUICK.DB NPM](https://www.npmjs.com/package/quick.db) - [QUICK.DB DOCS](https://quickdb.js.org/) - [EXPRESS NPM](https://www.npmjs.com/package/express) - [EXPRESS DOCS](https://expressjs.com/) - [PUG NPM](https://www.npmjs.com/package/pug) - [PUG DOCS](https://pugjs.org/api/getting-started.html) - [EJS NPM](https://www.npmjs.com/package/ejs) - [EJS DOCS](https://ejs.co/) --------- ## LINKS * [Docs](https://docs.yeetdesigns.xyz/router) * [Discord](https://docs.yeetdesigns.xyz/router/support/discord) --------- ## Example * [render engine examples](/Docs/Render%20Engine%20Examples.md) ### Main File ```js const express = require(\"express\") const site = express() const {Utils} = require(\"ydrouter\")",
+  "description": "an expressjs router",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Andrew T",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DAREALYTYGRUNN1NGARK456/YeetDesigns-Router.git"
+  }
 }
