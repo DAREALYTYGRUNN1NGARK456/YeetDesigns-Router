@@ -1,6 +1,7 @@
 module.exports = {
         Builder: require("./src/builder.js"),
-Util: require("./src/utils.js")
+        Utils: require("./src/utils.js"),
+        Version: require("./package.json").version
 
 
 

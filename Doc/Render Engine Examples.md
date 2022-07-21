@@ -4,11 +4,11 @@
 ```js
 const express = require("express")
 const site = express()
-const {Utils} = require("ydrouter")
+const {Utils} = require("yeetdesigns-router")
 
 
 
-const server = new Create(site, "ejs", "html", "./pages")
+const server = new Utils(site, "ejs", "html", "./pages")
 
 server.load('./routes').then(() => {
     site.listen(process.env.PORT || 3000, () => {
@@ -65,11 +65,11 @@ This script places a badge on your repl's full-browser view back to your repl's 
 ```js
 const express = require("express")
 const site = express()
-const {Utils} = require("ydrouter")
+const {Utils} = require("yeetdesings-router")
 
 
 
-const server = new Create(site, "pug", "html", "./pages")
+const server = new Utils(site, "pug", "html", "./pages")
 
 server.load('./routes').then(() => {
     site.listen(process.env.PORT || 3000, () => {

@@ -1,12 +1,21 @@
 {
   "name": "yeetdesigns-router",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "an expressjs router",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "quick.db",
+    "better-sqlite3",
+    "express router",
+    "router",
+    "pug",
+    "ejs",
+    "YeetDesigns"
+  ],
   "author": "Andrew T",
   "license": "ISC",
   "repository": {
@@ -14,6 +23,7 @@
     "url": "https://github.com/DAREALYTYGRUNN1NGARK456/YeetDesigns-Router.git"
   },
   "dependencies": {
+    "better-sqlite3": "^7.6.2",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "pug": "^3.0.2",

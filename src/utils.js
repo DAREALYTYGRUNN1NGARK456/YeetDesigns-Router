@@ -57,14 +57,14 @@ this.app.set("views", join(pagesPath))
         @param {String} dir The directory.
     */
     async load(dir) {
-        let modules = readdirSync(join(mdir, dir))
+        let modules = readdirSync(join(dir))
         for(const file of modules) {
                 if (file === "Template") {
                         
                 } else {
-            let stat = lstatSync(join(mdir, dir, file))
+            let stat = lstatSync(join(dir, file))
             if(stat.isDirectory()) { this.load(join(dir, file)); continue; }
-            let route = require(join(mdir, dir, file))
+            let route = require(join(dir, file))
     /* Fixed */ if(!route || !route.data) continue;
                 
             this.routes.set(route.data.path, route)

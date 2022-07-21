@@ -1,6 +1,7 @@
 
 # YeetDesigns EXPRESS GET ROUTER
-![npm](https://img.shields.io/npm/dw/yeetdesigns-router?logo=npm&style=for-the-badge) ![npm](https://img.shields.io/npm/v/yeetdesigns-router?logo=npm&style=for-the-badge)
+<a href="https://npmjs.com/package/yeetdesigns-router"><img alt="npm" src="https://img.shields.io/npm/dw/yeetdesigns-router?logo=npm&style=for-the-badge"><img alt="npm2" src="https://img.shields.io/npm/v/yeetdesigns-router?logo=npm&style=for-the-badge"></a>
+
 ## About
 ### this npm package uses
 #### versions of npm packages
@@ -27,11 +28,11 @@
 ```js
 const express = require("express")
 const site = express()
-const {Utils} = require("ydrouter")
+const {Utils} = require("yeetdesigns-router")
 
 
 
-const server = new Create(site)
+const server = new Utils(site)
 
 server.load('./routes').then(() => {
     site.listen(process.env.PORT || 3000, () => {
@@ -43,7 +44,7 @@ server.load('./routes').then(() => {
 ```
 ### Routes/Home.js
 ```js
-const {Builder} = require("ydrouter")
+const {Builder} = require("yeetdesigns-router")
 
 module.exports = {
     data: new Builder()
