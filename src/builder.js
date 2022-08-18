@@ -22,7 +22,7 @@ class Builder {
         /*
 @param {String} explain an explanation of the endpoint
 */
-    setExplan(explan) {
+    setExplain(explan) {
         this.explan = explan
         return this
     }
