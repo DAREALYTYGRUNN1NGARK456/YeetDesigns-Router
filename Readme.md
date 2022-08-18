@@ -24,7 +24,12 @@
 ---------
 ## Example
 * [render engine examples](/Docs/Render%20Engine%20Examples.md)
-### Main File
+### How to use
+<details>
+<summary>
+Main File
+</summary>
+
 ```js
 const express = require("express")
 const site = express()
@@ -32,7 +37,9 @@ const {Utils} = require("yeetdesigns-router")
 
 
 
-const server = new Utils(site)
+const server = new Utils({
+    app: site
+})
 
 server.load('./routes').then(() => {
     site.listen(process.env.PORT || 3000, () => {
@@ -42,7 +49,13 @@ server.load('./routes').then(() => {
 
 
 ```
-### Routes/Home.js
+
+</details>
+<details>
+<summary>
+Routes/Home.js
+</summary>
+
 ```js
 const {Builder} = require("yeetdesigns-router")
 
@@ -55,6 +68,8 @@ res.send("Hello World!")
     }
 }
 ```
+</details>
+
 ---------
 # Credits
 
