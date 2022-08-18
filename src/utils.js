@@ -9,17 +9,28 @@ const pug = require("pug")
 
 class Util {
     /**
-        @param {express.Application} app The express application.
+     * @param {Object} options
+        @param {express.Application} options.app The express application.
 
-@param {String} type The type of router engine middleware you want [none, ejs, pug] (case sensitive)
+@param {String} options.type The type of router engine middleware you want [none, ejs, pug] (case sensitive)
 
-@param {String} renderFile The page files extension (required if you chose to use type)
+@param {String} options.renderFile The page files extension (required if you chose to use type)
 
-@param {String} pagesPath The path to the pages of your site
+@param {String} options.pagesPath The path to the pages of your site
+
+@param {Object} options.assets
+@param {String} options.assets.assetsPath the url path
+@param {String} options.assets.assetsFolderPath the folder path for all your assets 
 
 
 */
-    constructor(app, type, renderFile, pagesPath) {
+    constructor(options = {}) {
+let type = options.type
+let app = options.app
+let renderFile = options.renderFile
+let pagesPath = options.pagesPath
+let assetsPath = options.assets.assetsPath
+let assetsFolderPath = options.assets.assetsFolderPath
 if (!type ||type=== "none") {
  this.app = app
         this.routes = new Map()
@@ -31,7 +42,20 @@ this.app.engine(renderFile, ejs.renderFile)
 this.app.set("view engine", renderFile)
 this.app.set("views", join(pagesPath))
 
-
+if (assetsPath&&assetsFolderPath) {
+    this.app.use(assetsPath, express.static(join(assetsFolderPath)))
+} else {
+    return new Error(`
+    You didnt put the "options.assets" object right
+    [
+        assets: {
+            assetsPath: "/assets",
+            assetsFolderPath: __dirname+"/assets"
+        }
+    ]
+    Please try again with the format above
+    `)
+}
 
 
 
@@ -44,7 +68,20 @@ this.routes = new Map()
 this.app.engine(renderFile, pug.renderFile)
 this.app.set("view engine", renderFile)
 this.app.set("views", join(pagesPath))
-
+if (assetsPath&&assetsFolderPath) {
+    this.app.use(assetsPath, express.static(join(assetsFolderPath)))
+} else {
+    return new Error(`
+    You didnt put the "options.assets" object right
+    [
+        assets: {
+            assetsPath: "/assets",
+            assetsFolderPath: __dirname+"/assets"
+        }
+    ]
+    Please try again with the format above
+    `)
+}
 
 
 
@@ -54,9 +91,10 @@ this.app.set("views", join(pagesPath))
 }
        }
     /**
-        @param {String} dir The directory.
+    * @param {String} dir The directory.
+    * @param {Function} callback the callback function
     */
-    async load(dir) {
+    async load(dir, callback) {
         let modules = readdirSync(join(dir))
         for(const file of modules) {
                 if (file === "Template") {
@@ -70,8 +108,9 @@ this.app.set("views", join(pagesPath))
             this.routes.set(route.data.path, route)
             this.app.get(route.data.path, (req, res) => {
                 if(route.data.path.startsWith('/image/')) req = this.support(req)
-                route.execute(req, res, db, DevKey)
+                route.execute(req, res, db)
             })
+            callback()
                 }
         }
     }
