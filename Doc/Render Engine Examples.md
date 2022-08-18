@@ -1,6 +1,11 @@
 # Render Engine Examples
-## EJS
-### Ejs Engine
+
+# Ejs Engine
+<details>
+<summary>
+Main File
+</summary>
+
 ```js
 const express = require("express")
 const site = express()
@@ -8,16 +13,30 @@ const {Utils} = require("yeetdesigns-router")
 
 
 
-const server = new Utils(site, "ejs", "html", "./pages")
-
-server.load('./routes').then(() => {
-    site.listen(process.env.PORT || 3000, () => {
+const server = new Utils({
+   app: site, // express application
+  type: "ejs", // render middleware
+  renderFile: "html", // render page file extenison
+  pagesPath: __dirname+"/pages", // pages path
+   assets: {
+        assetsFolderPath: __dirname+"/assets", // loads the assets folder which contains css/Main.css and scripts/Main.js
+        assetsPath: "/assets" // the url path
+    }  
+})
+server.load(__dirname+"/routes", function () {
+site.listen(process.env.PORT || 3000, () => {
         console.log('Listening the webserver.')
     })
 })
 
+
 ```
-### Ejs Page File
+</details>
+<details>
+<summary>
+Ejs Page File
+</summary>
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -51,17 +70,32 @@ This script places a badge on your repl's full-browser view back to your repl's 
 </html>
 
 ```
-### Ejs Page Template BootStrap Container Start file
+</details>
+<details>
+<summary> 
+Ejs Page Template BootStrap Container Start file
+</summary>
+
 ```html
 <div class="container">
 ```
-### Ejs Page Template BootStrap Container End file
+</details>
+<details>
+<summary>
+Ejs Page Template BootStrap Container End file
+</summary>
+
 ```html
 </div>
 ```
-## PUG
+</details>
 
-### Pug Engine
+# Pug Engine
+<details>
+<summary>
+Main File
+</summary>
+
 ```js
 const express = require("express")
 const site = express()
@@ -69,16 +103,31 @@ const {Utils} = require("yeetdesings-router")
 
 
 
-const server = new Utils(site, "pug", "html", "./pages")
+const server = new Utils({
+   app: site, // express application
+  type: "pug", // render middleware
+  renderFile: "pug", // render page file extenison
+  pagesPath: __dirname+"/pages", // pages path
+   assets: {
+        assetsFolderPath: __dirname+"/assets", // loads the assets folder which contains css/Main.css and scripts/Main.js
+        assetsPath: "/assets" // the url path
+    }  
+})
 
-server.load('./routes').then(() => {
-    site.listen(process.env.PORT || 3000, () => {
+server.load(__dirname+"/routes", function () {
+site.listen(process.env.PORT || 3000, () => {
         console.log('Listening the webserver.')
     })
 })
 
 ```
-### Pug Page File
+</details>
+
+<details>
+<summary>
+Pug Page File
+</summary>
+
 ```pug
 doctype html
 html(lang="en")
@@ -97,3 +146,4 @@ html(lang="en")
         Pug is a terse and simple templating language with a
         strong focus on performance and powerful features.
 ```
+</details>
